@@ -1,0 +1,23 @@
+{
+  "name": "eindopdracht_tdd_groentetuin",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000b\u0000a\u0000s\u0000_\u0000p\u0000o\u0000o\u0000t\u0000-\u0000-\u0000-\u0000T\u0000D\u0000D\u0000-\u0000G\u0000r\u0000o\u0000e\u0000n\u0000t\u0000e\u0000t\u0000u\u0000i\u0000n\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sjpoot/bas_poot---TDD-Groentetuin.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sjpoot/bas_poot---TDD-Groentetuin/issues"
+  },
+  "homepage": "https://github.com/sjpoot/bas_poot---TDD-Groentetuin#readme",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}
