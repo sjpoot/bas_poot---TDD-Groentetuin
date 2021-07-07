@@ -1,4 +1,5 @@
-const { getYieldForPlant, getYieldForCrop, getTotalYield, getCostsForCrop } = require('./farm');
+const { getYieldForPlant, getYieldForCrop, getTotalYield, getCostsForCrop,
+    getRevenueForCrop } = require('./farm');
 
 describe("getYieldForPlant", () => {
     const corn = {
@@ -64,5 +65,19 @@ describe("getCostsForCrop", () => {
     };
     test("Get costs for crop with no environment factors", () => {
         expect(getCostsForCrop(input)).toBe(10);
+    });
+});
+
+describe("getRevenueForCrop", () => {
+    const apple = {
+        name: "apple",
+        revenue: 2,
+    };
+    const input = {
+        crop: apple,
+        numCrops: 10,
+    };
+    test("get revenue for crop with no environment factors", () => {
+        expect(getRevenueForCrop(input)).toBe(20);
     });
 });
