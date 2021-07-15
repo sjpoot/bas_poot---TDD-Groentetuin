@@ -86,7 +86,8 @@ describe("getRevenueForCrop", () => {
 describe("getProfitForCrop", () => {
     const apple = {
         name: "apple",
-        revenue: 2,
+        yield: 3,
+        price: 2,
         costs: 1,
     };
     const input = {
@@ -94,6 +95,6 @@ describe("getProfitForCrop", () => {
         numCrops: 10,
     };
     test("get profit for crop with no environment factors", () => {
-        expect(getProfitForCrop(input)).toBe(10);
+        expect(getProfitForCrop(input)).toBe(50);
     });
 });
