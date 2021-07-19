@@ -299,4 +299,48 @@ describe("getTotalProfit", () => {
 
         expect(getTotalProfit({ crops })).toBe(53);
     });
+
+    test("Calculate total profit with multiple crops with environment factors", () => {
+        const corn = {
+            name: "corn",
+            yield: 3,
+            costs: 1,
+            price: 2,
+            factors: {
+                sun: {
+                    low: -40,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: 100,
+                    medium: -20,
+                    high: -50,
+                }
+            },
+        };
+        const pumpkin = {
+            name: "pumpkin",
+            yield: 4,
+            costs: 2,
+            price: 4,
+            factors: {
+                sun: {
+                    low: -60,
+                    medium: 0,
+                    high: 50,
+                },
+            },
+        };
+        const crops = [
+            { crop: corn, numCrops: 5 },
+            { crop: pumpkin, numCrops: 2 },
+        ];
+        const environmentFactors = {
+            sun: "high",
+            wind: "medium",
+        };
+
+        expect(getTotalProfit({ crops }, environmentFactors)).toBe(75);
+    });
 });

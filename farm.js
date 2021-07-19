@@ -46,11 +46,11 @@ const getProfitForCrop = (input, environmentFactors) => {
     return (Math.round(getRevenueForCrop(input, environmentFactors) - getCostsForCrop(input)));
 }
 
-const getTotalProfit = ({ crops }) => {
+const getTotalProfit = ({ crops }, environmentFactors) => {
     let totalProfit = 0;
 
     crops.forEach(currentCrop => {
-        totalProfit += getRevenueForCrop(currentCrop) - getCostsForCrop(currentCrop);
+        totalProfit += getRevenueForCrop(currentCrop, environmentFactors) - getCostsForCrop(currentCrop);
     });
     return totalProfit;
 }
