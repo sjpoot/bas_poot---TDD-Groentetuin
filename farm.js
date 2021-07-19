@@ -1,5 +1,18 @@
-const getYieldForPlant = (crop) => {
-    return (crop.yield);
+const getYieldForPlant = (crop, environmentFactors) => {
+    let factorSun = 1;
+    let factorWind = 1;
+
+    if (environmentFactors) {
+        if (crop.factors.sun) {
+            const sunValue = environmentFactors.sun;
+            factorSun = (100 + crop.factors.sun[sunValue]) / 100;
+        }
+        if (crop.factors.wind) {
+            const windValue = environmentFactors.wind;
+            factorWind = (100 + crop.factors.wind[windValue]) / 100;
+        }
+    }
+    return (crop.yield * factorSun * factorWind);
 };
 
 const getYieldForCrop = (input) => {
