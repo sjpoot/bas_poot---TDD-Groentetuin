@@ -6,17 +6,17 @@ const getYieldForPlant = (crop, environmentFactors) => {
         if (crop.factors.sun) {
             const sunValue = environmentFactors.sun;
             factorSun = (100 + crop.factors.sun[sunValue]) / 100;
-        }
+        };
         if (crop.factors.wind) {
             const windValue = environmentFactors.wind;
             factorWind = (100 + crop.factors.wind[windValue]) / 100;
-        }
-    }
+        };
+    };
     return (crop.yield * factorSun * factorWind);
 };
 
-const getYieldForCrop = (input) => {
-    return (getYieldForPlant(input.crop) * input.numCrops);
+const getYieldForCrop = (input, environmentFactors) => {
+    return (getYieldForPlant(input.crop, environmentFactors) * input.numCrops);
 }
 
 const getTotalYield = ({ crops }) => {
