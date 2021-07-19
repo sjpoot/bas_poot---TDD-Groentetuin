@@ -246,6 +246,36 @@ describe("getProfitForCrop", () => {
     test("get profit for crop with no environment factors", () => {
         expect(getProfitForCrop(input)).toBe(50);
     });
+
+    test("get profit for crop with environment factors", () => {
+        const apple = {
+            name: "apple",
+            yield: 4,
+            price: 2,
+            costs: 1,
+            factors: {
+                sun: {
+                    low: -40,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: 100,
+                    medium: -20,
+                    high: -50,
+                }
+            },
+        };
+        const input = {
+            crop: apple,
+            numCrops: 10,
+        };
+        const environmentFactors = {
+            sun: "high",
+            wind: "medium",
+        };
+        expect(getProfitForCrop(input, environmentFactors)).toBe(86);
+    });
 });
 
 describe("getTotalProfit", () => {
