@@ -196,9 +196,40 @@ describe("getRevenueForCrop", () => {
         crop: apple,
         numCrops: 10,
     };
+
     test("get revenue for crop with no environment factors", () => {
         expect(getRevenueForCrop(input)).toBe(60);
     });
+
+    test("get revenue for crop with environment factors", () => {
+        const apple = {
+            name: "apple",
+            yield: 4,
+            price: 2,
+            factors: {
+                sun: {
+                    low: -40,
+                    medium: 0,
+                    high: 50,
+                },
+                wind: {
+                    low: 100,
+                    medium: -20,
+                    high: -50,
+                }
+            },
+        };
+        const input = {
+            crop: apple,
+            numCrops: 10,
+        };
+
+        const environmentFactors = {
+            sun: "low",
+            wind: "medium",
+        };
+        expect(getRevenueForCrop(input, environmentFactors)).toBe(38.4);
+    })
 });
 
 describe("getProfitForCrop", () => {
